@@ -1,3 +1,4 @@
+sudo timedatectl set-timezone Asia/Dhaka
 echo "Pick One of those 1. Packages | 2. Firefox | 3. .dots | 0. All"
 read -p "Lets Do it: " option
 
