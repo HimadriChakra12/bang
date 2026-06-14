@@ -1,9 +1,11 @@
 # dotfiles
 declare -A dotfiles=(
-    ["$HOME/bang/mimeapps.list"]="$HOME/.config/mimeapps.list"
-    ["$HOME/bang/mango"]="$HOME/.config/mango"
-    ["$HOME/bang/foot"]="$HOME/.config/foot"
-    ["$HOME/bang/waybar"]="$HOME/.config/waybar"
+    ["$HOME/bang/dots/mimeapps.list"]="$HOME/.config/mimeapps.list"
+    ["$HOME/bang/dots/mango"]="$HOME/.config/mango"
+    ["$HOME/bang/dots/foot"]="$HOME/.config/foot"
+    ["$HOME/bang/dots/waybar"]="$HOME/.config/waybar"
+    ["$HOME/bang/dots/.bashrc"]="$HOME/.bashrc"
+    ["$HOME/bang/dots/.tmux.conf"]="$HOME/.tmux.conf"
 )
 
 for src in "${!dotfiles[@]}"; do
