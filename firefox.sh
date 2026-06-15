@@ -21,7 +21,15 @@ path="$FIREFOX_DIR/$profile"
 echo "Using profile: $path"
 rm -rf "$path/chrome"
 mkdir -p "$path/chrome"
-curl -L "https://github.com/HimadriChakra12/penboot/raw/refs/heads/main/livefiles/firefox/userChrome.css" \
-    -o "$path/chrome/userChrome.css"
-curl -L "https://github.com/HimadriChakra12/penboot/raw/refs/heads/main/livefiles/firefox/user.js" \
-    -o "$path/user.js"
+
+declare -A dotfiles=(
+    ["$HOME/bang/dots/firefox/userChrome.css"]="$path/chrome/userChrome.css"
+    ["$HOME/bang/dots/firefox/user.js"]="$path/user.js"
+)
+
+for src in "${!dotfiles[@]}"; do
+    tgt="${dotfiles[$src]}"
+    echo "Linking $src → $tgt"
+    rm -rf "$tgt"
+    ln -sf "$src" "$tgt"
+done

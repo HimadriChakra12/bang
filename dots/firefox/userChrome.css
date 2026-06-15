@@ -1,0 +1,81 @@
+*{
+	border-radius: 0px !important;
+	font-family: 'Jetbrains Mono' !important;
+}
+/* Hide icons in context menus */
+menupopup menuitem, menupopup menu {
+    list-style-image: none !important;
+    -moz-image-region: auto !important;
+    -moz-appearance: none !important;
+    padding-inline-start: 0 !important; /* Remove extra space where icon was */
+}
+#urlbar {
+    opacity: 0;
+    pointer-events: none !important;
+    cursor: default !important;
+    border-radius: 12px !important;
+    background: rgba(44, 44, 54, 0.85);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    color: #e0e0e0 !important;
+}
+#urlbar:active,
+#urlbar:focus-within {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 200 !important;
+    opacity: 1;
+    background: rgba(60, 60, 80, 0.95);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+    color: #fff !important;
+    padding: 20px !important;
+}
+#nav-bar,
+#TabsToolbar {
+    min-height: 36px !important;
+    max-height: 36px !important;
+    padding: 0 !important;
+}
+#firefox-view-button{
+	display: none !important;
+}
+
+
+/* --- UNIFIED EXTENSIONS BUTTON ------------------------ */
+
+/* make extension icons smaller */
+#unified-extensions-view {
+    --uei-icon-size: 16px;
+}
+
+/* hide bloat */
+.unified-extensions-item-message-deck,
+#unified-extensions-view > .panel-header,
+#unified-extensions-view > toolbarseparator,
+#unified-extensions-manage-extensions {
+    display: none !important;
+}
+
+/* add 3px padding on the top and the bottom of the box */
+.panel-subview-body {
+    padding: 3px 0px !important;
+}
+
+#unified-extensions-view .toolbarbutton-icon {
+    padding: 0 !important;
+}
+
+.unified-extensions-item-contents {
+    line-height: 1 !important;
+    white-space: nowrap !important;
+}
+
+#unified-extensions-panel .unified-extensions-item {
+    margin-block: 0 !important;
+}
+
+.toolbar-menupopup :is(menu, menuitem), .subview-subheader, panelview
+.toolbarbutton-1, .subviewbutton, .widget-overflow-list .toolbarbutton-1 {
+    padding: 4px !important;
+}
