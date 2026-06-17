@@ -1,5 +1,5 @@
 sudo timedatectl set-timezone Asia/Dhaka
-echo "Pick One of those 1. Packages | 2. Firefox | 3. .dots | 0. All"
+echo "Pick One of those 1. Packages | 2. Firefox | 3. .dots | 4. nvim | 0. All"
 read -p "Lets Do it: " option
 
 case "$option" in
@@ -7,6 +7,7 @@ case "$option" in
     bash package.sh
     bash firefox.sh
     bash dots.sh
+    bash nvim.sh
     ;;
 1)
     bash package.sh
@@ -16,6 +17,9 @@ case "$option" in
     ;;
 3)
     bash dots.sh
+    ;;
+4)
+    bash nvim.sh
     ;;
 *)
     echo "Invalid choice"

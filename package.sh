@@ -2,7 +2,7 @@
 bash $HOME/bang/reflactor.sh
 
 # package install section
-sudo pacman -S git nvim imlib2 ttf-jetbrains-mono ttf-jetbrains-mono-nerd noto-fonts base-devel github-cli lazygit fzf
+sudo pacman -S git imlib2 ttf-jetbrains-mono ttf-jetbrains-mono-nerd noto-fonts base-devel github-cli lazygit fzf zoxide starship
 
 # self package-section
 mkdir $HOME/pkg
