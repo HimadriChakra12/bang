@@ -5,3 +5,4 @@ image/jpg=userapp-sxiv-MMFTQ3.desktop
 [Added Associations]
 image/png=userapp-sxiv-MMFTQ3.desktop;
 image/jpeg=userapp-sxiv-MMFTQ3.desktop;
+inode/directory=xarchiver.desktop;

@@ -14,6 +14,8 @@ git clone $url/sxat	    sxat
 git clone $url/px	    px
 git clone $url/fetch	fetch
 git clone $url/dtop	    dtop
+git clone $url/whot	    whot
+git clone $url/determinant	    det
 
 cd sxiv
 bash install.sh
@@ -32,5 +34,13 @@ sudo make install
 cd ..
 
 cd dtop
+sudo make install
+cd ..
+
+cd det
+sudo make install
+cd ..
+
+cd whot
 sudo make install
 cd ..
