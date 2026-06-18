@@ -4,6 +4,7 @@ if [[ -f $HOME/wprfrc ]]; then
     source $HOME/wprfrc
 fi
 
+eval "$(zoxide init bash)"
 APP=$HOME/.local/share/applications
 
 export PATH="$HOME/sayarchi/scripts:$PATH"
@@ -114,7 +115,7 @@ alias grep='grep --color=auto'
 alias paci="sudo pacman -S"
 alias pacs="sudo pacman -q"
 alias yi="yay -S"
-alias pi="pikaur -S"
+alias pi="sudo pacman -S"
 alias ys="yay -q"
 alias pks="pikaur -q"
 alias sx="sxiv"

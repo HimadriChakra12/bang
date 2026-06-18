@@ -44,3 +44,9 @@ cd ..
 cd whot
 sudo make install
 cd ..
+
+git clone https://github.com/resslr/aurc.git
+cd aurc
+sudo make install
+cd ..
+
