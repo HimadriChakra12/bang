@@ -2,6 +2,7 @@
 declare -A dotfiles=(
     ["$HOME/bang/dots/mimeapps.list"]="$HOME/.config/mimeapps.list"
     ["$HOME/bang/dots/mango"]="$HOME/.config/mango"
+    ["$HOME/bang/dots/mpv"]="$HOME/.config/mpv"
     ["$HOME/bang/dots/foot"]="$HOME/.config/foot"
     ["$HOME/bang/dots/waybar"]="$HOME/.config/waybar"
     ["$HOME/bang/dots/.bashrc"]="$HOME/.bashrc"
