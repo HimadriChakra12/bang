@@ -24,6 +24,10 @@ pb(){
     vim $(fzf)
 }
 
+gcl() {
+    git clone $1 --depth 1
+}
+
 dk() {
     docker ps
     read -p "Kill: " h
@@ -59,7 +63,7 @@ zo(){
         items+=("$line")
     done < <(ls -1)
     local selected_item
-    selected_item=$(printf '%s\n' "${items[@]}" | fzf --layout=reverse --header "$(pwd)" --height 90% --preview "eza --color=always {} -T")
+    selected_item=$(printf '%s\n' "${items[@]}" | fzf --layout=reverse --header "$(pwd)" --height 90% --preview "eza --color=always {} -TL 2")
     if [[ -n "$selected_item" ]]; then
         if [[ -d "$selected_item" ]]; then
             cd "$selected_item" || return
