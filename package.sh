@@ -10,7 +10,7 @@ mkdir $HOME/pkg
 cd $HOME/pkg
 
 url="https://github.com/HimadriChakra12"
-git clone $url/hsxiv    sxiv
+git clone $url/rsxiv    sxiv
 git clone $url/sxat	    sxat
 git clone $url/px	    px
 git clone $url/fetch	fetch
