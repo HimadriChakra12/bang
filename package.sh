@@ -6,7 +6,7 @@ sudo pacman -S git imlib2 ttf-jetbrains-mono ttf-jetbrains-mono-nerd noto-fonts 
 sudo pacman -R ex-vi-compat vim
 
 # self package-section
-mkdir $HOME/pkg
+mkdir -p $HOME/pkg
 cd $HOME/pkg
 
 url="https://github.com/HimadriChakra12"
