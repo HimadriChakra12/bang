@@ -11,7 +11,7 @@ cd $HOME/pkg
 
 url="https://github.com/HimadriChakra12"
 git clone $url/rsxiv    sxiv
-git clone $url/sxat	    sxat
+git clone $url/swat	    swat
 git clone $url/px	    px
 git clone $url/fetch	fetch
 git clone $url/dtop	    dtop
@@ -22,7 +22,7 @@ cd sxiv
 bash install.sh
 cd ..
 
-cd sxat
+cd swat
 bash install.sh
 cd ..
 
