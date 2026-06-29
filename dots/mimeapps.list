@@ -10,3 +10,4 @@ image/jpeg=imv.desktop;userapp-sxiv-MMFTQ3.desktop;swayimg.desktop;
 inode/directory=xarchiver.desktop;
 application/zip=xarchiver.desktop;
 application/pdf=xpdf.desktop;
+image/webp=swayimg.desktop;
