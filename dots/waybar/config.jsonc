@@ -7,7 +7,7 @@
     "margin-bottom": 0,
     "margin-left": 0,
     "margin-right": 0,
-    "modules-center": ["hyprland/workspaces"],
+    "modules-center": ["ext/workspaces"],
     "modules-left": ["custom/update", "custom/screenrecording-indicator", "clock", "custom/seperator", "custom/timer"],
     "modules-right": [
         "group/tray-expander",
@@ -17,27 +17,15 @@
         "cpu",
         "battery"
     ],
-    "hyprland/workspaces": {
-        "on-click": "activate",
+    "ext/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "default": "",
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
             "active": "󱓻"
         },
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": []
-        }
+        "ignore-hidden": true,
+        "on-click": "activate",
+        "on-click-right": "deactivate",
+        "sort-by-id": true
     },
     "custom/omarchy": {
         "format": "<span font='omarchy'>\ue900</span>",
