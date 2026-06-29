@@ -170,6 +170,18 @@ swayimg.viewer.on_key("Shift+f", function()
 end)
 swayimg.viewer.on_key("t", swayimg.viewer.mark_image)
 
+swayimg.viewer.on_key("equal", function()
+  local scale = swayimg.viewer.get_scale()
+  scale = scale + scale / 10
+  swayimg.viewer.set_abs_scale(scale);
+end)
+
+swayimg.viewer.on_key("minus", function()
+  local scale = swayimg.viewer.get_scale()
+  scale = scale - scale / 10
+  swayimg.viewer.set_abs_scale(scale);
+end)
+
 swayimg.viewer.on_key("Shift+d", functions.delete)
 swayimg.viewer.on_key("Shift+r", functions.rename)
 swayimg.viewer.on_key("Shift+s", functions.qrscan)
