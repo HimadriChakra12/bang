@@ -4,6 +4,7 @@
 
 require("modes/viewer/text")
 require("modes/viewer/bindings")
+require("modes/viewer/leader")
 
 swayimg.viewer.set_default_scale("optimal")
 
