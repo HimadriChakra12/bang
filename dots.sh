@@ -8,6 +8,7 @@ dotfiles=(
     "$HOME/bang/dots/waybar:$HOME/.config/waybar"
     "$HOME/bang/dots/pkgit:$HOME/.config/pkgit"
     "$HOME/bang/dots/swayimg:$HOME/.config/swayimg"
+    "$HOME/bang/dots/gitu:$HOME/.config/gitu"
     "$HOME/bang/dots/.bashrc:$HOME/.bashrc"
     "$HOME/bang/dots/.tmux.conf:$HOME/.tmux.conf"
 )
