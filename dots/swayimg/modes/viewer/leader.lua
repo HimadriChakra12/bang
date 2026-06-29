@@ -1,26 +1,47 @@
+--------------------------------------------------
+-- Leader System (nsxiv-style Ctrl-x)
+--------------------------------------------------
+
 local leader = false
 
-local function leader_bind(key, fn) swayimg.viewer.on_key(key, function() if not leader then return end leader = false fn() end) end
+swayimg.viewer.on_key("Ctrl-x", function() leader = true swayimg.text.set_status("leader") end)
+local function bind(key, fn) swayimg.viewer.on_key(key, function() if not leader then return end leader = false fn() end) end
 
-swayimg.viewer.on_key("Ctrl-x", function() leader = true swayimg.text.set_status("<.>") end)
+local keymap = {
 
-leader_bind("d", function()
-    local img = swayimg.viewer.get_image()
-    os.remove(img.path)
-end)
+    -- copy image to clipboard
+    y = function()
+        local img = swayimg.viewer.get_image()
+        if img then
+            os.execute("wl-copy --type image/png < '" .. img.path .. "'")
+        end
+    end,
 
-leader_bind("r", function()
-    swayimg.viewer.rotate(90)
-end)
+    w = function()
+        local img = swayimg.viewer.get_image()
+        if not img then return end
 
-leader_bind("m", function()
-    swayimg.viewer.toggle_mark()
-end)
+        local target = os.getenv("HOME") .. "/.dotfiles/i3/Wallpaper/Wallpaper"
+        os.execute("rm -f '" .. target .. "'")
+        os.execute("ln -s '" .. img.path .. "' '" .. target .. "'")
+        swayimg.text.set_status("Wallpaper set")
+    end,
 
-leader_bind("g", function()
-    swayimg.set_mode("gallery")
-end)
+    e = function()
+        local img = swayimg.viewer.get_image()
+        if img then
+            os.execute("urxvt -e sh -c \"exiv2 pr -q -pa '" .. img.path .. "' | less\" &")
+        end
+    end,
 
-leader_bind("q", function()
-    swayimg.exit()
-end)
+    a = function()
+        local img = swayimg.viewer.get_image()
+        if img then
+            os.execute("swat -r '" .. img.path .. "'")
+        end
+    end,
+}
+
+for key, fn in pairs(keymap) do
+    bind(key, fn)
+end
