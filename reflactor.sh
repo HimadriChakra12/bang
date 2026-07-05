@@ -21,7 +21,7 @@ echo "==> Enabling reflector systemd timer..."
 sudo systemctl enable reflector.timer
 sudo systemctl start reflector.timer
 
-sudo pacman -Syyu
+sudo pacman -Syy
 echo "==> Done!"
 echo "Mirrorlist updated and automatic updates enabled."
 

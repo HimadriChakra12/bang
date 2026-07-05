@@ -20,10 +20,8 @@ local keymap = {
     w = function()
         local img = swayimg.viewer.get_image()
         if not img then return end
-
-        local target = os.getenv("HOME") .. "/.dotfiles/i3/Wallpaper/Wallpaper"
-        os.execute("rm -f '" .. target .. "'")
-        os.execute("ln -s '" .. img.path .. "' '" .. target .. "'")
+        local path = img.path:gsub("'", "'\\''")
+        os.execute("swaybg -m fill -i '" .. path .. "' &")
         swayimg.text.set_status("Wallpaper set")
     end,
 
