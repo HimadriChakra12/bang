@@ -3,10 +3,10 @@ prefix = home.."/.local"
 
 install_directories = {
   -- bin	    = prefix.."/bin",
-  bin	    = "/usr/local/bin"
-  include	= prefix.."/include"
-  lib	    = prefix.."/lib"
-  src     = prefix.."/share/pkgit"
+  bin	    = "/usr/local/bin",
+  include	= prefix.."/include",
+  lib	    = prefix.."/lib",
+  src     = prefix.."/share/pkgit",
 }
 
 repositories = require("repos.init")
