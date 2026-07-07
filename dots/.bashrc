@@ -1,3 +1,37 @@
+# Colors
+RESET='\[\e[0m\]'
+
+CYAN='\[\e[38;2;180;190;254m\]'
+PINK='\[\e[38;2;245;194;231m\]'
+BLUE='\[\e[38;2;137;180;250m\]'
+
+GREEN='\[\e[38;2;166;227;161m\]'
+YELLOW='\[\e[38;2;249;226;175m\]'
+RED='\[\e[38;2;243;139;168m\]'
+
+# Git prompt
+git_prompt() {
+    git rev-parse --is-inside-work-tree >/dev/null 2>&1 || return
+
+    local branch marks ahead behind
+
+    branch=$(git branch --show-current)
+
+    git diff --quiet --ignore-submodules || marks+="● "
+    git diff --cached --quiet --ignore-submodules || marks+="+ "
+    [[ -n $(git ls-files --others --exclude-standard) ]] && marks+="? "
+
+    ahead=$(git rev-list --count @{upstream}..HEAD 2>/dev/null || echo 0)
+    behind=$(git rev-list --count HEAD..@{upstream} 2>/dev/null || echo 0)
+
+    (( ahead > 0 )) && marks+="⇡$ahead "
+    (( behind > 0 )) && marks+="⇣$behind "
+
+    printf "  %s %s" "$branch" "$marks"
+}
+
+# Prompt
+export PS1="${BLUE}\w ${PINK}\$(git_prompt) ${RESET}\n${YELLOW}❯ ${RESET}"
 fetch
 # ~/.bashrc
 if [[ -f $HOME/wprfrc ]]; then
@@ -17,7 +51,6 @@ source $HOME/bang/bashcomp.sh
 [[ $- != *i* ]] && return
 
 eval "$(zoxide init bash)"
-eval "$(starship init bash)"
 eval "$(fzf --bash)"
 
 pb(){
