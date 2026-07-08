@@ -64,8 +64,8 @@ wallpaper:
 	@swaybg -i $(HOME)/bang/Standing.png -m fill &
 
 clean:
-	sudo paccache -r
-	$(PACMAN) -Scc --noconfirm
+	@sudo paccache -r
+	@$(PACMAN) -Scc --noconfirm
 	@orphans=$$($(PACMAN) -Qtdq); \
 	if [ -n "$$orphans" ]; then \
 		$(PACMAN) -Rns $(NOC) $$orphans; \
