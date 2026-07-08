@@ -31,7 +31,7 @@ git_prompt() {
 }
 
 # Prompt
-export PS1="${CYAN}\w ${BLUE}\$(git_prompt) ${RESET}\n${RED}❯ ${RESET}"
+export PS1="\n${CYAN}\w ${BLUE}\$(git_prompt) ${RESET}\n${RED}❯ ${RESET}"
 fetch
 # ~/.bashrc
 if [[ -f $HOME/wprfrc ]]; then

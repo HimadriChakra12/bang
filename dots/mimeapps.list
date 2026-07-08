@@ -9,5 +9,5 @@ image/png=userapp-sxiv-MMFTQ3.desktop;
 image/jpeg=imv.desktop;userapp-sxiv-MMFTQ3.desktop;swayimg.desktop;
 inode/directory=xarchiver.desktop;
 application/zip=xarchiver.desktop;
-application/pdf=xpdf.desktop;firefox.desktop;
+application/pdf=sxbv.desktop;xpdf.desktop;firefox.desktop;
 image/webp=swayimg.desktop;
