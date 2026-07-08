@@ -64,24 +64,24 @@ wallpaper:
 	@swaybg -i $(HOME)/bang/Standing.png -m fill &
 
 clean:
-	@sudo paccache -r
-	@$(PACMAN) -Scc --noconfirm
-	@orphans=$$($(PACMAN) -Qtdq); \
+	-sudo paccache -r
+	-$(PACMAN) -Scc --noconfirm
+	-@orphans=$$($(PACMAN) -Qtdq); \
 	if [ -n "$$orphans" ]; then \
 		$(PACMAN) -Rns $(NOC) $$orphans; \
 	else \
 		echo "No orphaned packages found."; \
 	fi
-	sudo journalctl --vacuum-size=500M
-	sudo find /var/log -type f -name "*.log" -exec truncate -s 0 {} \;
-	sudo rm -rf /tmp/* /var/tmp/*
-	if command -v docker &> /dev/null; then \
+	-sudo journalctl --vacuum-size=500M
+	-sudo find /var/log -type f -name "*.log" -exec truncate -s 0 {} \;
+	-sudo rm -rf /tmp/* /var/tmp/*
+	-if command -v docker &> /dev/null; then \
 		echo "[6/10] Pruning unused Docker objects..."; \
 		sudo docker system prune -a --volumes -f; \
 	fi
-	sudo rm -rf /var/cache/*
-	sudo find /root -type f -size +50M -exec ls -lh {} \; | awk '{ print $$9 ": " $$5 }'
-	sudo du -hxd1 /opt | sort -h | awk '$$1 ~ /[0-9]M|G/ {print}'
+	-sudo rm -rf /var/cache/*
+	-sudo find /root -type f -size +50M -exec ls -lh {} \; | awk '{ print $$9 ": " $$5 }'
+	-sudo du -hxd1 /opt | sort -h | awk '$$1 ~ /[0-9]M|G/ {print}'
 
 all: reflector pkg dots firefox nvim wallpaper
 .PHONY: reflector makepath makepkg inpkg pkg remove dots firefox nvim wallpaper clean
