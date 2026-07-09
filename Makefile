@@ -1,8 +1,4 @@
-include make/command.mk
-include make/pkg.mk
-
 PATH        := $(HOME)/pkg:$(PATH)
-PKG         = $(HOME)/pkg
 
 help:
 	@echo "	make reflector [Reflector Setup]"
@@ -13,6 +9,11 @@ help:
 	@echo "	make remove    [Remove Unwanted Packages]"
 	@echo "	make clean     [Root Clean]"
 
+include make/command.mk
+include make/pkg.mk
+include make/dots.mk
+
+dots: mime  mango  mpv  foot  waybar  pkgit  swayimg  bashrc  tmux  
 
 reflector:
 	@echo "Installing reflector..."
@@ -43,7 +44,7 @@ $(PKG)/.in-%:
 	@touch $@
 
 remove:
-	$(PACMAN) -R $(PKGRM)
+	-@$(PACMAN) -Rns $(PKGRM)
 
 pkg: makepath makepkg inpkg remove
 
