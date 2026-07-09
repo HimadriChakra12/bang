@@ -38,6 +38,13 @@ local keymap = {
             os.execute("swat -r '" .. img.path .. "'")
         end
     end,
+
+    c = function()
+        local img = swayimg.viewer.get_image()
+        if img then
+            os.execute("cropgui '" .. img.path .. "'")
+        end
+    end,
 }
 
 for key, fn in pairs(keymap) do
