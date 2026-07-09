@@ -1,0 +1,14 @@
+#!/bin/bash
+
+STATE_FILE="$HOME/gammastep_on"
+TEMP="4900"
+
+if [ ! -f "$STATE_FILE" ]; then
+    # Turn gammastep ON
+    gammastep -O $TEMP >/dev/null 2>&1
+    touch "$STATE_FILE"
+else
+    pkill gammastep
+    rm "$STATE_FILE"
+fi
+
