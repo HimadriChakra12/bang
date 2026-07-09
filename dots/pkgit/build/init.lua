@@ -77,4 +77,19 @@ return {
       },
     }
   },
+  ["PKGBUILD"] = {
+    targets = {
+      default = {
+        build = function()
+          return os.execute("makepkg -f")
+        end,
+        install = function()
+          return os.execute("makepkg -si")
+        end,
+        uninstall = function()
+          return os.execute("")
+        end,
+      },
+    }
+  },
 }
