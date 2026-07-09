@@ -1,4 +1,4 @@
-PKGIN       = git imlib2 ttf-jetbrains-mono ttf-jetbrains-mono-nerd noto-fonts base-devel github-cli lazygit fzf zoxide starship swayimg xdg-desktop-portal xdg-desktop-portal-gtk
+PKGIN       = git imlib2 ttf-jetbrains-mono ttf-jetbrains-mono-nerd noto-fonts base-devel github-cli lazygit fzf zoxide starship swayimg redshift
 PKGRM       = ex-vi-compat vim
 URL         = https://github.com/HimadriChakra12
 MAKEREPOS   = fetch dtop whot det
