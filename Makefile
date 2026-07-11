@@ -3,6 +3,7 @@ PATH        := $(HOME)/pkg:$(PATH)
 help:
 	@echo "	make reflector [Reflector Setup]"
 	@echo "	make pkg       [Pkg Setup]"
+	@echo "	make pacstall  [Pacman Packages]"
 	@echo "	make firefox   [Firefox Setup]"
 	@echo "	make wallpaper [Wallpaper Setup]"
 	@echo "	make nvim      [Nvim Setup]"
@@ -13,10 +14,11 @@ include make/command.mk
 include make/pkg.mk
 include make/dots.mk
 
-dots: mime  mango  mpv  foot  waybar  pkgit  swayimg  bashrc  tmux  
-	sudo cp $(DOTS)/pacman.conf /etc/pacman.conf
+dots: mime  mango  mpv  foot  waybar  pkgit  swayimg  bashrc
 
 reflector:
+	sudo cp $(DOTS)/pacman.conf /etc/pacman.conf
+	@$(PACMAN) -Syyu
 	@echo "Installing reflector..."
 	@$(PACMAN) -S $(NOC) reflector
 	@echo "Backing up current mirrorlist..."
@@ -26,7 +28,7 @@ reflector:
 	@echo "Enabling reflector systemd timer..."
 	@$(CTL) enable reflector.timer
 	@$(CTL) start reflector.timer
-	@$(PACMAN) -Syy
+	@$(PACMAN) -Syyu
 	@echo "Mirrorlist updated and automatic updates enabled."
 
 makepath:
@@ -47,18 +49,17 @@ $(PKG)/.in-%:
 remove:
 	-@$(PACMAN) -Rns $(PKGRM)
 
-pkg: makepath makepkg inpkg
-
+pkg: pacstall inpkg makepath makepkg 
 
 firefox:
 	@$(GG) --no-single-branch $(URL)/$(USC) $(PKG)/$(USC)
 	@cd $(PKG)/$(USC) && for branch in $$(git branch -r | grep -v HEAD | grep -v master | grep -v main | sed 's/origin\///'); do git checkout -b $$branch origin/$$branch; done
 	@git checkout -b main
-	@bash firefox.sh
+	@bash $(PKG)/userChrome/firefox.sh
 
 nvim:
 	@$(PACMAN) -S $(NEED) nvim
-	@$(GG) $(URL)/himstart.nvim  $HOME/.config/nvim
+	@$(GG) $(URL)/himstart.nvim  $(HOME)/.config/nvim
 
 wallpaper:
 	@swaybg -i $(HOME)/bang/Standing.png -m fill &
@@ -83,5 +84,6 @@ clean:
 	-sudo find /root -type f -size +50M -exec ls -lh {} \; | awk '{ print $$9 ": " $$5 }'
 	-sudo du -hxd1 /opt | sort -h | awk '$$1 ~ /[0-9]M|G/ {print}'
 
-all: reflector pkg dots firefox nvim wallpaper
+all: reflector pkg dots firefox nvim wallpaper remove
+
 .PHONY: reflector makepath makepkg inpkg pkg remove dots firefox nvim wallpaper clean
