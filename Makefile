@@ -14,6 +14,7 @@ include make/pkg.mk
 include make/dots.mk
 
 dots: mime  mango  mpv  foot  waybar  pkgit  swayimg  bashrc  tmux  
+	sudo cp $(DOTS)/pacman.conf /etc/pacman.conf
 
 reflector:
 	@echo "Installing reflector..."
@@ -35,7 +36,7 @@ makepath:
 makepkg: $(addprefix $(PKG)/,$(MAKEREPOS))
 $(PKG)/%:
 	@[ -d $@ ] || $(GG) $(URL)/$* $@;
-	@cd $@ && $(MAKE_INSTALL)
+	@cd $@ && $(MAKE) && $(MAKEIN)
 
 inpkg: $(addprefix $(PKG)/.in-,$(INREPOS))
 $(PKG)/.in-%:
@@ -46,10 +47,8 @@ $(PKG)/.in-%:
 remove:
 	-@$(PACMAN) -Rns $(PKGRM)
 
-pkg: makepath makepkg inpkg remove
+pkg: makepath makepkg inpkg
 
-dots:
-	$(SH) dots.sh
 
 firefox:
 	@$(GG) --no-single-branch $(URL)/$(USC) $(PKG)/$(USC)
