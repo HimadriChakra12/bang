@@ -35,7 +35,7 @@ makepath:
 	mkdir -p $(PKG)
 	cd $(PKG)
 
-makepkg: $(addprefix $(PKG)/,$(MAKEREPOS))
+mkpkg: $(addprefix $(PKG)/,$(MAKEREPOS))
 $(PKG)/%:
 	@[ -d $@ ] || $(GG) $(URL)/$* $@;
 	@cd $@ && $(MAKE) && $(MAKEIN)
@@ -49,7 +49,7 @@ $(PKG)/.in-%:
 remove:
 	-@$(PACMAN) -Rns $(PKGRM)
 
-pkg: pacstall inpkg makepath makepkg 
+pkg: pacstall inpkg makepath mkpkg 
 
 firefox:
 	@$(GG) --no-single-branch $(URL)/$(USC) $(PKG)/$(USC)
@@ -84,6 +84,16 @@ clean:
 	-sudo find /root -type f -size +50M -exec ls -lh {} \; | awk '{ print $$9 ": " $$5 }'
 	-sudo du -hxd1 /opt | sort -h | awk '$$1 ~ /[0-9]M|G/ {print}'
 
-all: reflector pkg dots firefox nvim wallpaper remove
+homeclean:
+	rm $(HOME)/Documents
+	rm $(HOME)/Scripts
+	rm $(HOME)/Backgorunds
+	rm $(HOME)/Musics
+	rm $(HOME)/Videos
+
+timezone:
+	sudo timedatectl set-timezone Asia/Dhaka
+
+all: reflector pkg dots firefox nvim wallpaper remove homeclean
 
 .PHONY: reflector makepath makepkg inpkg pkg remove dots firefox nvim wallpaper clean
