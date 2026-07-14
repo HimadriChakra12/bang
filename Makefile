@@ -54,6 +54,10 @@ pacstall:
 
 pkg: pacstall inpkg makepath mkpkg remove
 
+pkgclean:
+	@cd $(PKG)/
+	rm $(MAKEREPOS) $(INREPOS) -rf
+
 firefox:
 	@$(GG) --no-single-branch $(URL)/$(USC) $(PKG)/$(USC)
 	@cd $(PKG)/$(USC) && for branch in $$(git branch -r | grep -v HEAD | grep -v master | grep -v main | sed 's/origin\///'); do git checkout -b $$branch origin/$$branch; done
