@@ -49,7 +49,10 @@ $(PKG)/.in-%:
 remove:
 	-@$(PACMAN) -Rns $(PKGRM)
 
-pkg: pacstall inpkg makepath mkpkg 
+pacstall:
+	-$(PACMAN) -S $(PKGIN)
+
+pkg: pacstall inpkg makepath mkpkg remove
 
 firefox:
 	@$(GG) --no-single-branch $(URL)/$(USC) $(PKG)/$(USC)
