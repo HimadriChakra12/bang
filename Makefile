@@ -91,6 +91,13 @@ homeclean:
 	rm $(HOME)/Musics
 	rm $(HOME)/Videos
 
+portals:
+	sudo mkdir -p /etc/xdg-desktop-portal
+	sudo cp dots/mango-portals.conf /etc/xdg-desktop-portal/mango-portals.conf
+	systemctl --user restart xdg-desktop-portal.service
+	systemctl --user restart xdg-desktop-portal-wlr.service
+	gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
 timezone:
 	sudo timedatectl set-timezone Asia/Dhaka
 
