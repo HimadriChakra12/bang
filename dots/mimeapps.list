@@ -1,11 +1,11 @@
 [Default Applications]
-image/png=userapp-sxiv-MMFTQ3.desktop
+image/png=swayimg.desktop
 image/jpg=userapp-sxiv-MMFTQ3.desktop
 image/jpeg=swayimg.desktop
 application/pdf=sxbv.desktop
 
 [Added Associations]
-image/png=userapp-sxiv-MMFTQ3.desktop;
+image/png=userapp-sxiv-MMFTQ3.desktop;swayimg.desktop;
 image/jpeg=imv.desktop;userapp-sxiv-MMFTQ3.desktop;swayimg.desktop;
 inode/directory=xarchiver.desktop;
 application/zip=xarchiver.desktop;
