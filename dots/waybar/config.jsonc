@@ -22,7 +22,7 @@
         "format-icons": {
             "active": "󱓻"
         },
-        "ignore-hidden": true,
+        "ignore-hidden": false,
         "on-click": "activate",
         "on-click-right": "deactivate",
         "sort-by-id": true
