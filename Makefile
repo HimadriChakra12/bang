@@ -16,6 +16,11 @@ include make/dots.mk
 
 dots: mime  mango  mpv  foot  waybar  pkgit  swayimg  bashrc
 
+font:
+	mkdir -p $(HOME)/.local/share/fonts
+	cp $(PKG)/bang/misc/JetBrainsMono-Regular.ttf $(HOME)/.local/share/fonts
+	fc-cache -fv
+
 reflector:
 	sudo cp $(DOTS)/pacman.conf /etc/pacman.conf
 	@$(PACMAN) -Syyu
@@ -108,6 +113,6 @@ portals:
 timezone:
 	sudo timedatectl set-timezone Asia/Dhaka
 
-all: reflector pkg dots firefox nvim wallpaper remove homeclean
+all: reflector font pkg dots firefox nvim wallpaper remove homeclean
 
 .PHONY: reflector makepath makepkg inpkg pkg remove dots firefox nvim wallpaper clean
