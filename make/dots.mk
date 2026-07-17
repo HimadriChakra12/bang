@@ -29,3 +29,6 @@ bashrc:
 tmux:
 	-rm -rf "$(HOME)/.tmux.conf"
 	-$(LN) "$(DOTS)/.tmux.conf" "$(HOME)/.tmux.conf"
+rdfm:
+	-rm -rf "$(CONF)/rdfm"
+	-$(LN) "$(DOTS)/rdfm" "$(CONF)/rdfm"
