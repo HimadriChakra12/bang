@@ -1,6 +1,6 @@
 PKG         = $(HOME)/pkg
 PKGIN       = git imlib2 ttf-jetbrains-mono ttf-jetbrains-mono-nerd noto-fonts base-devel github-cli lazygit fzf zoxide starship swayimg gammashift firefox mpv
-PKGRM       = ex-vi-compat vim
+PKGRM       = ex-vi-compat vim arch-install-scripts ddrescue edk2-shell fastfetch gparted imv l3afpad memtest86+ memtest86+-efi testdisk 
 URL         = https://github.com/HimadriChakra12
 MAKEREPOS   = fetch dtop whot det pw wtf
 INREPOS     = swat
